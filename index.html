@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- HEAD -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- TITLE -->
+    <title>JavaScript - Tic Tac Toe Board Game</title>
+    <!-- STYLES CSS FILE -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <!-- BODY -->
+  <!-- onload="startGame();" -->
+  <body>
+    <div class="enter-players">
+      <h1>TIC TAC TOE PvP</h1>
+      <form id="player-form">
+        <div class="player-container">
+          <label for="player1"></label>
+          <input
+            type="text"
+            placeholder="Player name 1..."
+            name="player1"
+            id="player1"
+            class="input-field"
+          />
+        </div>
+
+        <div class="player-container">
+          <label for="player2"></label>
+          <input
+            type="text"
+            placeholder="Player name 2..."
+            name="player2"
+            id="player2"
+            class="input-field"
+          />
+        </div>
+
+        <input type="submit" class="submit-btn" value="Start Game" />
+      </form>
+      <div>
+        <p>The game is played on a grid that's 3 squares by 3 squares.</p>
+        <p>
+          You are X, your friend (or the computer in this case) is O. Players
+          take turns putting their marks in empty squares.
+        </p>
+        <p>
+          The first player to get 3 of her marks in a row (up, down, across, or
+          diagonally) is the winner.
+        </p>
+        <p>When all 9 squares are full, the game is over.</p>
+      </div>
+    </div>
+
+    <!-- CONTAINER -->
+    <div class="container board__main hide-container">
+      <div class="row">
+        <!-- HEADING -->
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <div class="row">
+        <!-- "X's start first!",
+                    "It is O's turn",
+                    "It is X's Turn"
+                    "Oops, pick a different square!"
+                    "Congratulations ___'s, you win!" 
+                    "___'s already won!" -->
+        <h3 id="turnMessage"></h3>
+      </div>
+      <div id="board">
+        <!-- TOP ROW -->
+        <div id="topRow" class="row">
+          <div
+            id="square1"
+            class="top left square"
+            onCLick="nextMove(this)"
+          ></div>
+          <div
+            id="square2"
+            class="top middle square"
+            onCLick="nextMove(this)"
+          ></div>
+          <div
+            id="square3"
+            class="top right square"
+            onCLick="nextMove(this)"
+          ></div>
+        </div>
+        <!-- MIDDLE ROW -->
+        <div id="middleRow" class="row">
+          <div
+            id="square4"
+            class="middle left square"
+            onCLick="nextMove(this)"
+          ></div>
+          <div
+            id="square5"
+            class="middle center square"
+            onCLick="nextMove(this)"
+          ></div>
+          <div
+            id="square6"
+            class="middle right square"
+            onCLick="nextMove(this)"
+          ></div>
+        </div>
+        <!-- BOTTOM ROW -->
+        <div id="bottomRow" class="row">
+          <div
+            id="square7"
+            class="bottom left square"
+            onCLick="nextMove(this)"
+          ></div>
+          <div
+            id="square8"
+            class="bottom middle square"
+            onCLick="nextMove(this)"
+          ></div>
+          <div
+            id="square9"
+            class="bottom right square"
+            onCLick="nextMove(this)"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <table id="scoreboard" align="center">
+          <tr>
+            <td>Player 1</td>
+            <td width="30">&nbsp;</td>
+            <td>Player 2</td>
+          </tr>
+          <tr>
+            <td class="score" id="player1">0</td>
+            <td>&nbsp;</td>
+            <td class="score" id="player2">0</td>
+          </tr>
+        </table>
+      </div>
+      <div class="row">
+        <!-- BUTTON -->
+        <button id="refreshBtn" onClick="startGame()">Play again?</button>
+      </div>
+    </div>
+
+    <!-- SCRIPTS JS FILE -->
+    <script src="index.js" type="application/javascript"></script>
+  </body>
+</html>
